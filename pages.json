@@ -1,0 +1,97 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path" : "pages/tabbar/index/index",
+			"style" : 
+			{
+				"navigationBarTitleText" : "党建园地"
+			}
+		},
+		{
+			"path" : "pages/tabbar/join/join",
+			"style" : 
+			{
+				"navigationBarTitleText" : "我要入党"
+			}
+		},
+		{
+			"path" : "pages/tabbar/manage/manage",
+			"style" : 
+			{
+				"navigationBarTitleText" : "入党管理"
+			}
+		},
+		{
+			"path" : "pages/tabbar/me/me",
+			"style" : 
+			{
+				"navigationBarTitleText" : "我的"
+			}
+		},
+		{
+			"path" : "pages/manuel/manuel",
+			"style" : 
+			{
+				"navigationBarTitleText" : "我要入党"
+			}
+		},
+		{
+			"path" : "pages/me/namecard",
+			"style" : 
+			{
+				"navigationBarTitleText" : "个人名片"
+			}
+		},
+		{
+			"path" : "pages/join/upload",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
+		},
+		{
+			"path" : "pages/join/upload",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
+		}
+	],
+	"tabBar": {
+		"color": "#ACABB0",
+		"selectedColor": "#E5221C",
+		"list": [
+			{
+				"text": "首页",
+				"pagePath": "pages/tabbar/index/index",
+				"iconPath": "/static/images/tabbar/index.png",
+				"selectedIconPath": "/static/images/tabbar/index-s.png"
+			},
+			{
+				"text": "我要入党",
+				"pagePath": "pages/tabbar/join/join",
+				"iconPath": "/static/images/tabbar/join.png",
+				"selectedIconPath": "/static/images/tabbar/join-s.png"
+			},
+			{
+				"text": "入党管理",
+				"pagePath": "pages/tabbar/manage/manage",
+				"iconPath": "/static/images/tabbar/manage.png",
+				"selectedIconPath": "/static/images/tabbar/manage-s.png"
+			},
+			{
+				"text": "我的",
+				"pagePath": "pages/tabbar/me/me",
+				"iconPath": "/static/images/tabbar/me.png",
+				"selectedIconPath": "/static/images/tabbar/me-s.png"
+			}
+		]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "默认标题",
+		"navigationBarBackgroundColor": "#E42417",
+		"backgroundColor": "#FFFFFF"
+	},
+	"uniIdRouter": {}
+}
