@@ -99,7 +99,7 @@
 			goToFeedback() {
 				// 跳转到用户反馈页面
 				uni.navigateTo({
-					url: `/pages/feedback/feedback`
+					url: '/pages/me/feedback'
 				});
 			},
 			logout() {

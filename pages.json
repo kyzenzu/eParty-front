@@ -55,6 +55,20 @@
 			{
 				"navigationBarTitleText" : ""
 			}
+		},
+		{
+			"path" : "pages/me/feedback",
+			"style" : 
+			{
+				"navigationBarTitleText" : "用户反馈"
+			}
+		},
+		{
+			"path" : "pages/login/login",
+			"style" : 
+			{
+				"navigationBarTitleText" : "入党E点通"
+			}
 		}
 	],
 	"tabBar": {

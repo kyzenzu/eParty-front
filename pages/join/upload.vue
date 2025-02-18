@@ -29,7 +29,7 @@
 		
 		<view class="files">
 			
-			<view class="selected-file" v-for="i in 10">
+			<view class="selected-file" v-for="(i, index) in 10" :key="index">
 				<image src="/static/images/join/upload/photo.png"></image>
 				<view class="inner-box">
 					<view class="file-info">
