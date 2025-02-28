@@ -20,7 +20,7 @@
 				</view>
 				<!-- 菜单栏-->
 				<view class="menu">
-					<view class="menu-item" v-for="(item, index) in menu" :key="index">
+					<view class="menu-item" v-for="(item, index) in menu" :key="index" @click="clickMenu(index)">
 						<image :src="item.icon" mode="aspectFit" />
 						<text>{{item.text}}</text>
 					</view>
@@ -56,7 +56,7 @@
 		data() {
 			return {
 				user: {
-					avatar: "/static/images/me/avatar.jpg",
+					avatar: "/static/images/me/avatar.png",
 					name: "岑家如",
 					progress: "入党积极分子",
 					idNumber: "2022b29035",
@@ -84,6 +84,19 @@
 			};
 		},
 		methods: {
+			clickMenu(index) {
+				console.log(index);
+				switch (index) {
+					case 1:
+						this.goToProgress();
+						break;
+				}
+			},
+			goToProgress() {
+				uni.navigateTo({
+					url: `/pages/me/progress`
+				});
+			},
 			goToNameCard() {
 				var userData = JSON.stringify(this.user);
 				uni.navigateTo({
@@ -105,6 +118,9 @@
 			logout() {
 				// 执行退出登录逻辑
 				console.log('退出登录');
+				uni.navigateTo({
+					url: '/pages/login/login'
+				});
 			},
 		},
 	}

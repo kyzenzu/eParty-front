@@ -10,25 +10,10 @@
 			</view>
 		</scroll-view>
 		
-		<!-- <view class="contents">
-			<view class="row">
-				<manuel-item></manuel-item>
-			</view>
-			<view class="row">
-				<manuel-item></manuel-item>
-			</view>
-			<view class="row">
-				<manuel-item></manuel-item>
-			</view>
-			<view class="row">
-				<manuel-item></manuel-item>
-			</view>
-		</view> -->
-		
 		<swiper class="contents" :current="curManuel" @change="changeManuel" :style="{height: swiperHeight}">
 			<swiper-item class="swiper-item" v-for="(manuel, manuelIdx) in manuels" :key="manuelIdx">
 				<view class="row" v-for="(item, itemIdx) in manuel" :key="itemIdx">
-					<manuel-item :item="item"></manuel-item>
+					<manuel-item :item="item" @click.native="clickManuelItem"></manuel-item>
 				</view>
 			</swiper-item>
 		</swiper>
@@ -144,6 +129,11 @@
 			},
 			changeManuel(e) {
 				this.curManuel = e.detail.current;
+			},
+			clickManuelItem() {
+				uni.navigateTo({
+					url: '/pages/join/upload'
+				});
 			}
 		}
 	}

@@ -29,7 +29,7 @@
 			}
 		},
 		{
-			"path" : "pages/manuel/manuel",
+			"path" : "pages/join/manuel",
 			"style" : 
 			{
 				"navigationBarTitleText" : "我要入党"
@@ -72,6 +72,20 @@
 		},
 		{
 			"path" : "pages/join/introduce",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
+		},
+		{
+			"path" : "pages/login/login",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
+		},
+		{
+			"path" : "pages/me/progress",
 			"style" : 
 			{
 				"navigationBarTitleText" : ""

@@ -5,6 +5,8 @@
 			<view class="line2"></view>
 		</view>
 		
+		<view class="tips" v-show="page.tips">{{page.tips}}</view>
+		
 		<view class="title">{{page.title}}</view>
 		
 		<view class="contents">
@@ -22,6 +24,7 @@
 		data() {
 			return {
 				page: {
+					tips: "该流程由党支部报学院党委备案，您无需操作。",
 					title: "如何成为入党申请人",
 					contents: [
 						{
@@ -56,6 +59,11 @@
 		.line2 {
 			border-bottom: 3rpx solid #DFDFDF;
 		}
+	}
+	.tips {
+		color: #E42417;
+		margin-top: 15rpx;
+		text-align: center;
 	}
 	.title {
 		margin-top: 25rpx;

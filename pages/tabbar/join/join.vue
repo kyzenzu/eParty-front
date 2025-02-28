@@ -5,7 +5,7 @@
 			<view class="section-title">知识介绍</view>
 			<gradient-line color1="#E42417" width="164rpx"></gradient-line>
 			<view class="grid-container">
-				<view class="grid-item" v-for="(item, index) in gridItems" :key="index" @click="onGridClick(item)">
+				<view class="grid-item" v-for="(item, index) in gridItems" :key="index" @click="onGridClick(index)">
 					<image :src="item.icon" class="grid-icon"></image>
 					<text class="grid-text">{{ item.text }}</text>
 				</view>
@@ -26,7 +26,7 @@
 					<manuel-item></manuel-item>
 				</view>
 			</view>
-			<view class="look-more">
+			<view class="look-more" @click="clickLookMore()">
 				<text>请向下滑动查看更多</text>
 			</view>
 		</view>
@@ -72,9 +72,8 @@
 		},
 		methods: {
 			onGridClick(item) {
-				uni.showToast({
-					title: `点击了 ${item.text}`,
-					icon: "none"
+				uni.navigateTo({
+					url: '/pages/join/introduce'
 				});
 			},
 			onHandbookClick(item) {
@@ -83,6 +82,11 @@
 					icon: "none"
 				});
 			},
+			clickLookMore() {
+				uni.navigateTo({
+					url: '/pages/join/manuel'
+				});
+			}
 		},
 	};
 </script>

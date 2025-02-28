@@ -20,8 +20,8 @@
           v-model="password"
         />
         <view class="eye-icon" @click="togglePassword">
-			<image class="eye-open" src="/static/images/login/password/eye-open.png" v-if="showPassword"></image>
-			<image class="eye-close" src="/static/images/login/password/eye-close.png" v-else></image>
+			<image class="eye-open" src="/static/images/register/password/eye-open.png" v-if="showPassword"></image>
+			<image class="eye-close" src="/static/images/register/password/eye-close.png" v-else></image>
         </view>
       </view>
       <text class="hint">需6-12位字符</text>
