@@ -87,10 +87,34 @@
 			clickMenu(index) {
 				console.log(index);
 				switch (index) {
+					case 0:
+						this.goToMyOrganization();
+						break;
 					case 1:
 						this.goToProgress();
 						break;
+					case 2:
+						this.goToExample();
+						break;
+					case 3:
+						this.goToArchive();
+						break;
 				}
+			},
+			goToArchive() {
+				uni.navigateTo({
+					url: "/pages/me/archive"
+				});
+			},
+			goToExample() {
+				uni.navigateTo({
+					url: "/pages/me/example"
+				});
+			},
+			goToMyOrganization() {
+				uni.navigateTo({
+					url: "/pages/me/organization"
+				});
 			},
 			goToProgress() {
 				uni.navigateTo({
@@ -118,9 +142,21 @@
 			logout() {
 				// 执行退出登录逻辑
 				console.log('退出登录');
-				uni.navigateTo({
-					url: '/pages/login/login'
-				});
+				uni.showModal({
+					title: "退出登录",
+					content: "您确定要退出登陆吗",
+					cancelColor: "#6F6F6F",
+					confirmColor: "#E42417",
+					success: function (res) {
+						if (res.confirm) {
+							uni.reLaunch({
+								url: '/pages/login/login'
+							});
+						}
+						
+					}
+				})
+				
 			},
 		},
 	}

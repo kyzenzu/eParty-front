@@ -11,7 +11,8 @@
 			"path" : "pages/tabbar/join/join",
 			"style" : 
 			{
-				"navigationBarTitleText" : "我要入党"
+				"navigationBarTitleText" : "我要入党",
+				"enablePullDownRefresh": true
 			}
 		},
 		{
@@ -86,6 +87,76 @@
 		},
 		{
 			"path" : "pages/me/progress",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
+		},
+		{
+			"path" : "pages/manage/branch",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
+		},
+		{
+			"path" : "pages/me/archive",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
+		},
+		{
+			"path" : "pages/me/example",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
+		},
+		{
+			"path" : "pages/register/login-as",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
+		},
+		{
+			"path" : "pages/register/applicant",
+			"style" : 
+			{
+				"navigationBarTitleText" : "入党申请人"
+			}
+		},
+		{
+			"path" : "pages/register/party-member",
+			"style" : 
+			{
+				"navigationBarTitleText" : "党员信息"
+			}
+		},
+		{
+			"path" : "pages/me/imformation",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
+		},
+		{
+			"path" : "pages/manage/members",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
+		},
+		{
+			"path" : "pages/manage/information",
+			"style" : 
+			{
+				"navigationBarTitleText" : "个人资料"
+			}
+		},
+		{
+			"path" : "pages/me/organization",
 			"style" : 
 			{
 				"navigationBarTitleText" : ""

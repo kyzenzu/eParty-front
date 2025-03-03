@@ -20,7 +20,7 @@
 			</view>
 			<view class="card-container">
 				<view class="row">
-					<manuel-item></manuel-item>
+					<manuel-item @click.native="clickLookMore()"></manuel-item>
 				</view>
 				<view class="row">
 					<manuel-item></manuel-item>
@@ -36,6 +36,11 @@
 
 <script>
 	export default {
+		onReachBottom(){
+			uni.navigateTo({
+				url: "/pages/join/manuel"
+			})
+		},
 		data() {
 			return {
 				gridItems: [{
