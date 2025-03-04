@@ -18,7 +18,7 @@
 		props: {
 			height: {
 			  type: [Number, String],
-			  default: "8rpx", // 默认高度
+			  default: "7rpx", // 默认高度
 			},
 			width: {
 			  type: String,

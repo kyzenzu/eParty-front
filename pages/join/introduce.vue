@@ -1,9 +1,6 @@
 <template>
 	<view class="container">
-		<view class="headline">
-			<view class="line1"></view>
-			<view class="line2"></view>
-		</view>
+		<head-line></head-line>
 		
 		<view class="tips" v-show="page.tips">{{page.tips}}</view>
 		
@@ -49,21 +46,14 @@
 <style lang="scss">
 .container {
 	width: 100%;
-	padding: 26rpx 0;
-	.headline {
-		padding: 0 40rpx;
-		.line1 {
-			border-bottom: 8rpx solid #DFDFDF;
-			margin-bottom: 5rpx;
-		}
-		.line2 {
-			border-bottom: 3rpx solid #DFDFDF;
-		}
-	}
+	padding: 26rpx 40rpx;
+	box-sizing: border-box;
+	
 	.tips {
 		color: #E42417;
 		margin-top: 15rpx;
 		text-align: center;
+		font-size: 34rpx;
 	}
 	.title {
 		margin-top: 25rpx;
@@ -72,7 +62,7 @@
 		text-align: center;
 	}
 	.contents {
-		padding: 42rpx 44rpx;
+		padding: 42rpx 4rpx;
 		.content-item {
 			margin-bottom: 60rpx;
 			.text {
