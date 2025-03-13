@@ -75,7 +75,7 @@
 						title: {
 							name: "人数统计至本学期",
 							fontSize: 12,
-							offsetY: -90,
+							offsetY: -100,
 							color: "#000"
 						},
 						subtitle: {
