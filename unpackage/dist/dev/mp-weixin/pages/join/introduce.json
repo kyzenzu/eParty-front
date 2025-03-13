@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "",
+  "usingComponents": {
+    "head-line": "/components/head-line/head-line",
+    "gradient-line": "/components/gradient-line/gradient-line"
+  }
+}

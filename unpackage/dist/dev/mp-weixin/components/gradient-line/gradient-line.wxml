@@ -1,0 +1,1 @@
+<view><view class="gradient-line" style="{{'width:'+(width)+';'+('height:'+(height)+';')+('background:'+(linearGradient)+';')+('margin:'+(margin)+';')}}"></view></view>

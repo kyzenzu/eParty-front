@@ -29,7 +29,7 @@
 			</view>
 
 			<!-- 登录按钮 -->
-			<button class="register-btn" :class="{active: activeButton}">登 录</button>
+			<button class="register-btn" :class="{active: activeButton}" @click="register">登 录</button>
 
 			<!-- 用户协议 -->
 			<view class="agreement">
@@ -63,7 +63,11 @@
 			}
 		},
 		methods: {
-
+			register() {
+				uni.navigateTo({
+					url: "/pages/register/password"
+				})
+			}
 		},
 	};
 </script>

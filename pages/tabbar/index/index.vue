@@ -6,7 +6,7 @@
 			</swiper-item>
 		</swiper>
 		<view class="contents">
-			<divider double style="margin-bottom: 38rpx;"></divider>
+			<divider double></divider>
 			
 			<!-- 学工党建 -->
 			<view class="xgdj">
@@ -15,7 +15,7 @@
 					<text>学工党建</text>
 				</view>
 				<view class="xgdj-item-box" v-for="(item, index) in xgdj" :key="index">
-					<xgdj-item :item="item"></xgdj-item>
+					<xgdj-item :item="item" @click.native="goToLookMore"></xgdj-item>
 					<divider v-if="index != xgdj.length-1" style="margin-bottom: 45rpx;"></divider>
 					<divider v-else double style="margin-bottom: 25rpx;"></divider>
 				</view>
@@ -31,7 +31,7 @@
 					<view class="block"></view>
 					<text>专题网站</text>
 				</view>
-				<image :src="ztwzImage"></image>
+				<image :src="ztwzImage" @click="goToZTWZ"></image>
 			</view>
 			
 			<!-- 相关链接 -->
@@ -41,7 +41,7 @@
 					<text>相关链接</text>
 				</view>
 				<view class="xglj-links">
-					<image v-for="(link, index) in xgljLinks" :src="link" :key="index"></image>
+					<image v-for="(src, index) in xgljImages" :src="src" :key="index" @click="goToLinks(index)"></image>
 				</view>
 			</view>
 			
@@ -66,16 +66,51 @@
 						title: "计算机学院党委2024/2025学年第一学期发展对象拟推荐名单公示",
 						info: "计算机学院党建园地 2024-10-18"
 					},
-
-
+					{
+						title: "计算机学院党委2024/2025学年第一学期发展对象拟推荐名单公示",
+						info: "计算机学院党建园地 2024-10-18"
+					},
+					{
+						title: "计算机学院党委2024/2025学年第一学期发展对象拟推荐名单公示",
+						info: "计算机学院党建园地 2024-10-18"
+					},
+					{
+						title: "计算机学院党委2024/2025学年第一学期发展对象拟推荐名单公示",
+						info: "计算机学院党建园地 2024-10-18"
+					},
 	
 				],
 				ztwzImage: "/static/images/index/ztwz.png",
-				xgljLinks: [
+				xgljImages: [
 					"/static/images/index/link1.png",
 					"/static/images/index/link2.png",
+				],
+				xgljLinks: [
+					"https://jsj.zjweu.edu.cn/main.htm",
+					"https://www.zjweu.edu.cn/"
 				]
 			};
+		},
+		methods: {
+			goToZTWZ() {
+				var url = "https://www.12371.cn/dsxx/";
+				uni.navigateTo({
+					url: '/pages/webview/webview?url=' + url
+				})
+			},
+			goToLinks(index) {
+				var url = this.xgljLinks[index];
+				uni.navigateTo({
+					url: '/pages/webview/webview?url=' + url
+				})
+			},
+			goToLookMore() {
+				var url="https://jsj.zjweu.edu.cn/04/3f/c6417a132159/page.htm";
+				uni.navigateTo({
+					url: '/pages/webview/webview?url=' + url
+				})
+				
+			}
 		}
 	}
 </script>
@@ -109,13 +144,15 @@
 .xgdj {
 	width: 100%;
 	box-sizing: border-box;
+	margin-top: 38rpx;
 	margin-bottom: 50rpx;
 	.xgdj-title {
 		display: flex;
 		line-height: 28rpx;
 		font-size: 38rpx;
 		margin-bottom: 42rpx;
-		// font-weight: bold;
+		font-family: KaiTi;
+		font-weight: bold;
 		.block {
 			width: 6rpx;
 			height: 32rpx;

@@ -1,0 +1,1 @@
+<view class="progress-item"><view class="title-time"><view class="title">{{item.title}}</view><view class="time">{{item.time}}</view></view><view class="line"></view><view class="content">{{item.content}}</view><view class="{{['status',statusClass[item.status]]}}">{{''+statusContent[item.status]+''}}</view></view>

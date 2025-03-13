@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "党建园地",
+  "usingComponents": {
+    "divider": "/components/divider/divider",
+    "xgdj-item": "/components/xgdj-item/xgdj-item"
+  }
+}

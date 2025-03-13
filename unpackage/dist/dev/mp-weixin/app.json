@@ -1,0 +1,66 @@
+{
+  "pages": [
+    "pages/tabbar/index/index",
+    "pages/tabbar/join/join",
+    "pages/tabbar/manage/manage",
+    "pages/tabbar/me/me",
+    "pages/join/manuel",
+    "pages/me/namecard",
+    "pages/join/upload",
+    "pages/me/feedback",
+    "pages/register/register",
+    "pages/register/password",
+    "pages/join/introduce",
+    "pages/login/login",
+    "pages/me/progress",
+    "pages/manage/branch",
+    "pages/me/archive",
+    "pages/me/example",
+    "pages/register/login-as",
+    "pages/register/applicant",
+    "pages/register/party-member",
+    "pages/me/imformation",
+    "pages/manage/members",
+    "pages/manage/information",
+    "pages/me/organization",
+    "pages/webview/webview"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "默认标题",
+    "navigationBarBackgroundColor": "#E42417",
+    "backgroundColor": "#FFFFFF"
+  },
+  "tabBar": {
+    "color": "#ACABB0",
+    "selectedColor": "#E5221C",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/tabbar/index/index",
+        "iconPath": "/static/images/tabbar/index.png",
+        "selectedIconPath": "/static/images/tabbar/index-s.png"
+      },
+      {
+        "text": "我要入党",
+        "pagePath": "pages/tabbar/join/join",
+        "iconPath": "/static/images/tabbar/join.png",
+        "selectedIconPath": "/static/images/tabbar/join-s.png"
+      },
+      {
+        "text": "入党管理",
+        "pagePath": "pages/tabbar/manage/manage",
+        "iconPath": "/static/images/tabbar/manage.png",
+        "selectedIconPath": "/static/images/tabbar/manage-s.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/tabbar/me/me",
+        "iconPath": "/static/images/tabbar/me.png",
+        "selectedIconPath": "/static/images/tabbar/me-s.png"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

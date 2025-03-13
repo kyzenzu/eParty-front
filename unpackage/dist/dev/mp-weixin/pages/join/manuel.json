@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "我要入党",
+  "usingComponents": {
+    "manuel-item": "/components/manuel-item/manuel-item"
+  }
+}

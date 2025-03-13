@@ -1,0 +1,1 @@
+<view class="container"><head-line vue-id="defaecfa-1" bind:__l="__l"></head-line><view class="title">{{page.title}}</view><view class="content"><view class="subtitle">{{page.content.subtitle}}</view><gradient-line vue-id="defaecfa-2" color1="#59C8F5" width="155rpx" bind:__l="__l"></gradient-line><view class="members">{{page.content.member}}</view></view></view>

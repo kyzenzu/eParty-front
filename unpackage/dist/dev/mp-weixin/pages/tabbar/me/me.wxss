@@ -1,0 +1,133 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.container {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: #EFEFEF;
+}
+.profile-menu-box {
+  width: 100%;
+  height: 378rpx;
+  /* 高度可根据需要调整 */
+  padding: 37rpx 22.5rpx 0 22.5rpx;
+  background: linear-gradient(to bottom, red 0%, red 75%, #EFEFEF 75%, #EFEFEF 100%);
+  box-sizing: border-box;
+}
+.profile-menu-box .profile-menu {
+  width: 100%;
+  height: 341rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  background-color: white;
+  border-radius: 10rpx;
+}
+.profile-menu-box .profile-menu .divider-box {
+  padding: 0 20rpx;
+}
+.profile-menu-box .profile-menu .profile {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+}
+.profile-menu-box .profile-menu .profile .avatar image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+.profile-menu-box .profile-menu .profile .info-arrow {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.profile-menu-box .profile-menu .profile .info-arrow .info {
+  margin-left: 20rpx;
+}
+.profile-menu-box .profile-menu .profile .info-arrow .info .name {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.profile-menu-box .profile-menu .profile .info-arrow .info .progress {
+  margin-top: 15rpx;
+  font-size: 28rpx;
+  color: #E42417;
+}
+.profile-menu-box .profile-menu .profile .info-arrow .info .stars {
+  font-size: 24rpx;
+  color: #ff9900;
+}
+.profile-menu-box .profile-menu .profile .info-arrow .arrow {
+  color: #E42417;
+  font-weight: bold;
+}
+.profile-menu-box .profile-menu .menu {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #ffffff;
+}
+.profile-menu-box .profile-menu .menu .menu-item {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20rpx 0;
+  font-size: 25rpx;
+  font-weight: bold;
+}
+.profile-menu-box .profile-menu .menu .menu-item image {
+  width: 85rpx;
+  height: 85rpx;
+  margin-bottom: 10rpx;
+}
+.navigation-box {
+  background-color: #EFEFEF;
+  padding: 20rpx;
+}
+.navigation-box .navigation {
+  background-color: #fff;
+  padding: 0;
+  border-radius: 10rpx;
+  padding: 18rpx 17rpx 0 31rpx;
+}
+.navigation-box .navigation .navigation-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16rpx 0;
+  font-size: 16px;
+  color: #333;
+}
+.navigation-box .navigation .navigation-item.active {
+  border-bottom: solid 4rpx #EFEFEF;
+}
+.navigation-box .navigation .navigation-item .arrow {
+  color: black;
+  font-size: 18px;
+}
+

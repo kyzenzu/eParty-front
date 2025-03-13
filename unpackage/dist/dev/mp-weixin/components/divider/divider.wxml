@@ -1,0 +1,1 @@
+<view class="data-v-5dd75790"><view class="divider data-v-5dd75790" style="{{'height:'+(height)+';'+('background-color:'+(color)+';')+('margin:'+(margin)+';')}}"></view><block wx:if="{{double}}"><view class="divider data-v-5dd75790" style="{{'height:'+(height)+';'+('background-color:'+(color)+';')+('margin:'+(doubleLineGap)+';')}}"></view></block></view>

@@ -10,7 +10,7 @@
 		</view>
 		
 		<view class="contents">
-			<view class="login-as" v-for="(item, index) in loginAs" :key="index">
+			<view class="login-as" v-for="(item, index) in loginAs" :key="index" @click="complete(index)">
 				{{item}}
 			</view>
 		</view>
@@ -30,6 +30,15 @@
 					"兼职组织员"
 				],
 			};
+		},
+		methods: {
+			complete(index) {
+				var target = ["applicant", "committee", "secretary", "headTeacher", "organizer"];
+				target = target[index];
+				uni.navigateTo({
+					url: "/pages/register/applicant"
+				})
+			}
 		}
 	}
 </script>

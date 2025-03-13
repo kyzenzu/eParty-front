@@ -89,7 +89,7 @@
 <style lang="scss">
 page {
 	height: 100%;
-	background-color: #E4E4E4;
+	background-color: #F6F6F6;
 }
 
 .container {
@@ -118,7 +118,7 @@ page {
 		}
 	}
 	.contents {
-		background-color: #E4E4E4;
+		background-color: #F6F6F6;
 		.swiper-item {
 			width: 100%;
 			box-sizing: border-box;

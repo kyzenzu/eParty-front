@@ -28,7 +28,7 @@
     </view>
 
     <!-- 提交按钮 -->
-    <button class="submit-btn" :class="{active: validPassword}">完成</button>
+    <button class="submit-btn" :class="{active: validPassword}" @click="submit">完成</button>
   </view>
 </template>
 
@@ -50,6 +50,11 @@ export default {
     togglePassword() {
       this.showPassword = !this.showPassword;
     },
+	submit() {
+		uni.navigateTo({
+			url: "/pages/register/login-as"
+		})
+	}
   },
 };
 </script>

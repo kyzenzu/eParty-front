@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "我要入党",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "gradient-line": "/components/gradient-line/gradient-line",
+    "manuel-item": "/components/manuel-item/manuel-item"
+  }
+}

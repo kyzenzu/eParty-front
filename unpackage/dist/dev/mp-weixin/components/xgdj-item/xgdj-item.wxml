@@ -1,0 +1,1 @@
+<view class="xgdj-item"><view class="title">{{item.title}}</view><view class="info-box"><view class="info">{{item.info}}</view><view class="lookup"><image src="/static/images/index/lookup.png"></image><view style="color:#E42417;">查看</view></view></view></view>
