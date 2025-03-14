@@ -176,7 +176,6 @@ export default {
                     }
 
                     .edit-btn {
-                        // 圆角，浅蓝底，蓝色字和边框
                         border-radius: 999rpx;
                         background-color: #cee5fc;
                         color: #007AFF;
