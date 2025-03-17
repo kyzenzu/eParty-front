@@ -26,8 +26,8 @@
 					<manuel-item></manuel-item>
 				</view>
 			</view>
-			<view class="look-more" @click="clickLookMore()">
-				<text>请向下滑动查看更多</text>
+			<view class="look-more">
+				<text>下拉查看更多</text>
 			</view>
 		</view>
 
@@ -37,6 +37,12 @@
 <script>
 	export default {
 		onReachBottom(){
+			uni.navigateTo({
+				url: "/pages/join/manuel"
+			})
+		},
+		onPullDownRefresh() {
+			uni.stopPullDownRefresh();
 			uni.navigateTo({
 				url: "/pages/join/manuel"
 			})
@@ -87,13 +93,9 @@
 					icon: "none"
 				});
 			},
-			clickLookMore() {
-				uni.navigateTo({
-					url: '/pages/join/manuel'
-				});
-			}
-		},
-	};
+			
+		}
+	}
 </script>
 
 <style lang="scss">

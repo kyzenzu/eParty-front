@@ -49,7 +49,7 @@
 				<view class="title">学院党支部组成情况</view>
 				<scroll-view class="compositions" scroll-x>
 					<view class="branch" v-for="(branch, index) in compositions" :key="index" @click="goToBranch(index)"
-						:style="{marginRight: branchMarginRight(index)}">
+						:style="{marginRight: branchMarginRight(index),backgroundImage: branch.background}">
 						<view class="branch-info">
 							<view class="branch-name">{{branch.name}}</view>
 							<view class="branch-details">{{branch.details}}</view>
@@ -61,6 +61,12 @@
 
 			<view class="approval-mterials content-card">
 				<view class="title">审批材料</view>
+				<view class="grid-container">
+      				<view class="grid-item" v-for="(item, index) in approvalItems" :key="index"
+					 :style="{backgroundImage: item.background}">
+						{{item.name}}
+					</view>
+    			</view>
 			</view>
 		</view>
 	</view>
@@ -73,10 +79,10 @@
 				ringCharts: {
 					opts: {
 						title: {
-							name: "人数统计至本学期",
-							fontSize: 12,
-							offsetY: -100,
-							color: "#000"
+							name: "",
+							// fontSize: 12,
+							// offsetY: -100,
+							// color: "#000"
 						},
 						subtitle: {
 							name: ""
@@ -188,19 +194,55 @@
 				],
 				compositions: [{
 						name: "教工第一党支部",
-						details: "(软工+人工智能+实验室18人)"
+						details: "(软工+人工智能+实验室18人)",
+						background: "url('/static/images/manage/branch-background/teacher1.png')"
 					},
 					{
 						name: "教工第二党支部",
-						details: "(物联网+网安+高数24人)"
+						details: "(物联网+网安+高数24人)",
+						background: "url('/static/images/manage/branch-background/teacher2.png')"
 					},
 					{
-						name: "教工第一党支部",
-						details: "(软工+人工智能+实验室18人)"
+						name: "教工第三党支部",
+						details: "(软工+人工智能+实验室18人)",
+						background: "url('/static/images/manage/branch-background/teacher3.png')"
 					},
 					{
-						name: "教工第二党支部",
-						details: "(物联网+网安+高数24人)"
+						name: "学生第一党支部",
+						details: "(物联网+网安+高数24人)",
+						background: "url('/static/images/manage/branch-background/student1.png')"
+					},
+					{
+						name: "学生第二党支部",
+						details: "(物联网+网安+高数24人)",
+						background: "url('/static/images/manage/branch-background/student2.png')"
+					},
+					{
+						name: "学生第三党支部",
+						details: "(物联网+网安+高数24人)",
+						background: "url('/static/images/manage/branch-background/student3.png')"
+					},
+				],
+				approvalItems: [
+					{
+						name: "入党申请人",
+						background: "url('/static/images/manage/approval-background/1.png')"
+					},
+					{
+						name: "入党积极分子",
+						background: "url('/static/images/manage/approval-background/2.png')"
+					},
+					{
+						name: "发展对象",
+						background: "url('/static/images/manage/approval-background/3.png')"
+					},
+					{
+						name: "预备党员",
+						background: "url('/static/images/manage/approval-background/4.png')"
+					},
+					{
+						name: "正式党员",
+						background: "url('/static/images/manage/approval-background/5.png')"
 					},
 				]
 			};
@@ -344,11 +386,15 @@
 					.branch {
 						width: 421rpx;
 						height: 248rpx;
-						background-color: #67D6D0;
+						// background-color: #67D6D0;
 						display: inline-block;
 						margin-right: 75rpx;
 						border-radius: 20rpx;
 						box-sizing: border-box;
+						background-image: url('/static/images/manage/branch-background/teacher1.png'); /* 设置背景图片 */
+						background-size: cover; /* 让背景图片填充整个元素 */
+						// background-position: center; /* 居中显示背景图片 */
+						background-repeat: no-repeat; /* 不重复显示背景图片 */
 
 						.branch-info {
 							width: 100%;
@@ -375,6 +421,31 @@
 
 			.approval-mterials {
 				height: 592rpx;
+				.grid-container {
+					padding: 53rpx 15rpx;
+  					display: grid;
+  					grid-template-columns: repeat(3, 1fr);
+  					gap: 35rpx 8rpx;
+  					justify-items: center;
+					box-sizing: border-box;
+					.grid-item {
+					  width: 220rpx;
+					  height: 160rpx;
+					  display: flex;
+					  align-items: center;
+					  justify-content: center;
+					  font-size: 28rpx;
+					  font-weight: bold;
+					  color: white;
+					  border-radius: 16rpx;
+					//box-shadow: 2rpx 2rpx 10rpx rgba(0, 0, 0, 0.2);
+
+					  background-image: url('/static/images/manage/approval-background/1.png'); /* 设置背景图片 */
+					  background-size: cover; /* 让背景图片填充整个元素 */
+					  // background-position: center; /* 居中显示背景图片 */
+					  background-repeat: no-repeat; /* 不重复显示背景图片 */
+					}
+				}
 			}
 		}
 	}
