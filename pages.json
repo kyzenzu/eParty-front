@@ -50,6 +50,12 @@
 				"navigationBarTitleText" : ""
 			}
 		},
+        {
+            "path": "pages/join/upload-success",
+            "style": {
+                "navigationBarTitleText": ""
+            }
+        },
 		{
 			"path" : "pages/me/feedback",
 			"style" : 
