@@ -33,18 +33,22 @@
 			</view>
 		</view>
 		
-		<view class="files">
+		<scroll-view scroll-y="true" class="files">
 			<view class="selected-file" v-for="(file, index) in selectedFile" :key="index">
-				<image :src="file.image" mode="aspectFit"></image>
+				
 				<view class="inner-box">
+					<image :src="file.image" mode="aspectFit"></image>
 					<view class="file-info">
 						<view class="file-name">{{file.name}}</view>
 						<view class="file-time-size">{{file.time + " " + file._size}}</view>
 					</view>
-					<image src="/static/images/join/upload/delete-icon.png" @click="deleteFile(index)"></image>
 				</view>
+				<image class="delete" src="/static/images/join/upload/delete-icon.png" @click="deleteFile(index)"></image>
 			</view>
-			
+		</scroll-view>
+
+		<view class="submit-box">
+			<view class="submit">提交</view>
 		</view>
 	</view>
 </template>
@@ -141,6 +145,7 @@
 <style lang="scss">
 .container {
 	padding-bottom: 20rpx;
+	box-sizing: border-box;
 	.upload {
 		width: 100%;
 		padding-top: 56rpx;
@@ -233,37 +238,62 @@
 	}
 	.files {
 		padding: 0 43rpx;
+		height: 95 * 4.8rpx;
+		box-sizing: border-box;
 		.selected-file {
 			width: 100%;
 			display: flex;
 			margin-bottom: 20rpx;
-			image {
-				width: 57*1.5rpx;
-				height: 65*1.5rpx;
-			}
-			.file-info {
-				.file-name{
-					
-				}
-				.file-time-size {
-					margin-top: 10rpx;
-					font-size: 25rpx;
-					color: #868686;
-				}
-			}
+			box-sizing: border-box;
+			padding-right: 20rpx;
+			justify-content: space-between;
+			align-items: center;
+			
 			.inner-box {
 				width: 100%;
-				margin-left: 32rpx;
 				display:flex;
 				align-items: center;
-				justify-content: space-between;
 				image {
-					width: 35.36*1.5rpx;
-					height: 35.36*1.5rpx;
+					flex-shrink: 0;
+					width: 56.62rpx;
+					height: 64.28rpx;
+					margin-right: 32rpx;
 				}
+				.file-info {
+					.file-name{
+						font-size: 30rpx;
+						max-width: 460rpx;
+					}
+					.file-time-size {
+						margin-top: 10rpx;
+						font-size: 25rpx;
+						color: #868686;
+					}
+				}
+				
+			}
+
+			.delete {
+				width: 35.36*1.5rpx;
+				height: 35.36*1.5rpx;
 			}
 		}
 		
+	}
+
+
+	.submit {
+		position: fixed;
+		height: 90rpx;
+		bottom: 28rpx;
+		left: 58rpx;   // 左侧间距 58rpx
+  		right: 58rpx;  // 右侧间距 58rpx
+		border-radius: 10rpx;
+  		background-color: #E42417;
+		color: #FFF;
+		font-size: 34rpx;
+		text-align: center;
+		line-height: 89rpx;
 	}
 }
 </style>

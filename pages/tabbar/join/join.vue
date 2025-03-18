@@ -93,7 +93,11 @@
 					icon: "none"
 				});
 			},
-			
+			clickLookMore() {
+				// uni.navigateTo({
+				// 	url: '/pages/join/manuel'
+				// });
+			}
 		}
 	}
 </script>

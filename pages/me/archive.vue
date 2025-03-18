@@ -9,7 +9,17 @@
         <view class="materials-container">
             <view class="materials-list">
                 <view class="material-item" v-for="(item, index) in 10" :key="index">
-
+					
+					<view class="file-info">
+						<image src="/static/images/me/archive/pdf-icon.png" mode="aspectFit" class="file-icon"></image>
+						<view class="file-detail">
+						    <view class="file-name">入党申请书.pdf</view>
+							<view class="file-meta">2024-11-05 194KB</view>
+						</view>
+					</view>
+					
+					<view class="lookup">查看</view>
+					
                 </view>
             </view>
         </view>
@@ -45,7 +55,7 @@ export default {
 
     .tip-text {
         color: white;
-        font-size: large;
+        font-size: 32rpx;
         line-height: 1.5;
     }
 }
@@ -53,7 +63,6 @@ export default {
 .materials-container {
     background-color: white;
     border-radius: 16rpx;
-    padding: 30rpx;
     position: relative;
     box-shadow: 0 4rpx 20rpx rgba(13, 83, 210, 0.1);
 
@@ -83,22 +92,52 @@ export default {
 }
 
 .materials-list {
-    padding: 10rpx 0;
     position: relative;
     z-index: 3;
+	padding: 71rpx 49rpx;
 
     .material-item {
+		width: 100%;
+		height: 134rpx;
+        padding: 0 32rpx;
         background-color: #FFFFFF;
-        border-radius: 12rpx;
+        // border-radius: 12rpx;
         min-height: 120rpx;
         margin-bottom: 24rpx;
-        padding: 30rpx;
         box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
         display: flex;
         justify-content: space-between;
         align-items: center;
-        border: 1rpx solid black;
+        border: 1rpx solid #D9D9D9;
         position: relative;
+		box-sizing: border-box;
+		
+		.file-info {
+			display: flex;
+            align-items: center;
+
+            .file-icon {
+                width: 56.62rpx;
+                height: 64.28rpx;
+                margin-right: 32rpx;
+            }
+
+            .file-detail {
+                .file-name {
+                    font-size: 30rpx;
+                    margin-bottom: 10rpx;
+                }
+                .file-meta {
+                    font-size: 18rpx;
+                    color: #868686;
+                }
+            }
+		}
+
+        .lookup {
+            color: #3396FB;
+            font-size: 24rpx;
+        }
 
         &:last-child {
             margin-bottom: 0;

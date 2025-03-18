@@ -110,7 +110,8 @@
 			"path" : "pages/me/example",
 			"style" : 
 			{
-				"navigationBarTitleText" : ""
+				"navigationBarTitleText" : "",
+				"navigationBarBackgroundColor": "#0D54D3"
 			}
 		},
 		{
