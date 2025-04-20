@@ -10,7 +10,7 @@
 			<view class="input-item">
 				<view class="input-field">
 					<text class="label">学号/工号</text>
-					<input type="text" placeholder="请输入学/工号" v-model="username" />
+					<input type="text" placeholder="请输入学/工号" v-model="userId" />
 				</view>
 			</view>
 
@@ -36,7 +36,7 @@
 		</view>
 
 		<!-- 登录按钮 -->
-		<button class="login-btn" :class="{active: activeButton}">登 录</button>
+		<button class="login-btn" :class="{active: activeButton}" @click="login()">登 录</button>
 
 		<!-- 底部提示 -->
 		<view class="bottom-tip">
@@ -46,23 +46,44 @@
 </template>
 
 <script>
+	import token from "@/utils/token";
 	export default {
 		data() {
 			return {
-				username: "",
+				userId: "",
 				password: "",
 				showPassword: false,
 			};
 		},
 		computed: {
 			activeButton() {
-				return this.username.length>0 && this.password.length>0;
+				return this.userId.length>0 && this.password.length>0;
 			}
 		},
 		methods: {
 			togglePassword() {
 				this.showPassword = !this.showPassword;
 			},
+			async login() {
+				var data = {
+					studentId: this.userId,
+					password: this.password
+				};
+				var satoken = await token.getToken(data.studentId, data.password);
+				if (satoken) {
+					uni.setStorageSync("satoken", satoken);
+					uni.switchTab({
+						url: "/pages/tabbar/index/index"
+					})
+				} else {
+					uni.showToast({
+						title: "服务器出错了",
+						icon: "error",
+						duration: 1000,
+						mask: true,
+					})
+				}
+			}
 		},
 	};
 </script>

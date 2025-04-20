@@ -51,6 +51,7 @@
 </template>
 
 <script>
+	import requests from "@/utils/requests";
 	export default {
 		data() {
 			return {
@@ -111,6 +112,12 @@
 				})
 				
 			}
+		},
+		onLoad() {
+			requests.get("/api/articles/").then(resp => {
+				// 获取学工党建文章
+				console.log(resp);
+			});
 		}
 	}
 </script>

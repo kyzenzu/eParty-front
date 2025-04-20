@@ -52,6 +52,8 @@
 </template>
 
 <script>
+	import requests from "@/utils/requests";
+	import token from "@/utils/token";
 	export default {
 		data() {
 			return {
@@ -149,6 +151,7 @@
 					confirmColor: "#E42417",
 					success: function (res) {
 						if (res.confirm) {
+							uni.clearStorageSync();
 							uni.reLaunch({
 								url: '/pages/login/login'
 							});

@@ -26,6 +26,7 @@
 /* 文章场景相关 */
 .container {
   padding-bottom: 20rpx;
+  box-sizing: border-box;
 }
 .container .upload {
   width: 100%;
@@ -61,9 +62,17 @@
 .container .upload .upload-photo .main-box .info2 {
   margin-bottom: 30rpx;
 }
-.container .upload .upload-photo .main-box image {
-  width: 100%;
+.container .upload .upload-photo .main-box .image-box {
+  display: flex;
   height: 199rpx;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: #EFEFEF;
+}
+.container .upload .upload-photo .main-box .image-box image {
+  width: 60.36rpx;
+  height: 65.64rpx;
 }
 .container .upload .upload-pdf {
   margin-bottom: 56rpx;
@@ -93,36 +102,67 @@
   margin-top: 23rpx;
   margin-bottom: 56rpx;
 }
-.container .upload .upload-pdf .main-box image {
-  width: 100%;
+.container .upload .upload-pdf .main-box .image-box {
+  display: flex;
   height: 199rpx;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: #EFEFEF;
+}
+.container .upload .upload-pdf .main-box .image-box image {
+  width: 56.62rpx;
+  height: 64.28rpx;
 }
 .container .files {
   padding: 0 43rpx;
+  height: 456rpx;
+  box-sizing: border-box;
 }
 .container .files .selected-file {
   width: 100%;
   display: flex;
   margin-bottom: 20rpx;
+  box-sizing: border-box;
+  padding-right: 20rpx;
+  justify-content: space-between;
+  align-items: center;
 }
-.container .files .selected-file image {
-  width: 85.5rpx;
-  height: 97.5rpx;
+.container .files .selected-file .inner-box {
+  width: 100%;
+  display: flex;
+  align-items: center;
 }
-.container .files .selected-file .file-info .file-time-size {
+.container .files .selected-file .inner-box image {
+  flex-shrink: 0;
+  width: 56.62rpx;
+  height: 64.28rpx;
+  margin-right: 32rpx;
+}
+.container .files .selected-file .inner-box .file-info .file-name {
+  font-size: 30rpx;
+  max-width: 460rpx;
+}
+.container .files .selected-file .inner-box .file-info .file-time-size {
   margin-top: 10rpx;
   font-size: 25rpx;
   color: #868686;
 }
-.container .files .selected-file .inner-box {
-  width: 100%;
-  margin-left: 32rpx;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.container .files .selected-file .inner-box image {
+.container .files .selected-file .delete {
   width: 53.04rpx;
   height: 53.04rpx;
+}
+.container .submit {
+  position: fixed;
+  height: 90rpx;
+  bottom: 28rpx;
+  left: 58rpx;
+  right: 58rpx;
+  border-radius: 10rpx;
+  background-color: #E42417;
+  color: #FFF;
+  font-size: 34rpx;
+  text-align: center;
+  line-height: 89rpx;
 }
 

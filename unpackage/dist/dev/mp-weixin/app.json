@@ -7,6 +7,7 @@
     "pages/join/manuel",
     "pages/me/namecard",
     "pages/join/upload",
+    "pages/join/upload-success",
     "pages/me/feedback",
     "pages/register/register",
     "pages/register/password",
