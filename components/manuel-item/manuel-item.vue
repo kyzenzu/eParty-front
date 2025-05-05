@@ -1,5 +1,5 @@
 <template>
-	<view class="manuel-item">
+	<view class="manuel-item" @click="clickLookMore()">
 		<view class="card-left">
 			<image src="/static/images/join/edit.png" class="card-icon"></image>
 		</view>
@@ -25,9 +25,9 @@
 				default() {
 					return {
 						title: "递交入党申请书",
-						desc: "了解入党申请人基本情况"
+						desc: "了解入党申请人基本情况",
+						needUpload: true
 					}
-					
 				}
 			}
 		},
@@ -35,6 +35,20 @@
 			return {
 				
 			};
+		},
+		methods: {
+			clickLookMore() {
+				var url;
+				console.log(this.item);
+				if (this.item.needUpload) {
+					url = '/pages/join/upload'
+				} else {
+					url = '/pages/join/introduce?page=' + JSON.stringify(this.item.page);
+				}
+				uni.navigateTo({
+					url: url
+				});
+			}
 		}
 	}
 </script>
@@ -66,6 +80,7 @@
 		justify-content: space-between;
 		margin-left: 36rpx;
 		.card-title {
+			max-width: 490rpx;
 			font-size: 32rpx;
 		}
 		.card-desc {

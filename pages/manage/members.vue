@@ -4,7 +4,7 @@
         <view class="page-header">
             <view class="header-left">
                 <img src="static/images/manage/party-yellow.png" alt="" class="party-icon">
-                <text class="header-text">树莓22-2入党申请人信息</text>
+                <text class="header-text">{{title.class}}{{title.title}}信息</text>
             </view>
             <text class="page-number">25/31</text>
         </view>
@@ -25,7 +25,7 @@
                                 <text class="ethnicity">{{ item.ethnicity }}</text>
                             </view>
                         </view>
-                        <text class="edit-btn">查看</text>
+                        <text class="edit-btn" @click="goToInformation(item)">查看</text>
                     </view>
                     <view class="status-row">
                         <text class="status-label">当前进度：</text>
@@ -42,8 +42,12 @@
 
 <script>
 export default {
+	onLoad(opts) {
+		this.title = JSON.parse(opts.info);
+	},
     data() {
         return {
+			title: {},
             memberList: [
                 {
                     name: '岑家如',
@@ -81,7 +85,14 @@ export default {
                 // 可以添加更多成员数据
             ]
         };
-    }
+    },
+	methods: {
+		goToInformation() {
+			uni.navigateTo({
+				url: "/pages/manage/information"
+			})
+		}
+	}
 }
 </script>
 

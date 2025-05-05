@@ -44,7 +44,9 @@ page {
   font-size: 30rpx;
 }
 .container .filter .filter-box {
-  width: 179rpx;
+  min-width: 80rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
   height: 49rpx;
   background-color: #FFF;
   border-radius: 24.5rpx;
@@ -66,6 +68,11 @@ page {
   margin-left: 12rpx;
   width: 18.26rpx;
   height: 10.58rpx;
+}
+.container .filter .highlight {
+  border-color: #E42417 !important;
+  color: #E42417 !important;
+  transition: border-color 0.3s ease-in-out;
 }
 .container .contents {
   box-sizing: border-box;

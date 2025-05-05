@@ -13,6 +13,10 @@
 				<view class="text">{{item.text}}</view>
 			</view>
 		</view>
+		
+		<view class="look-archive" style="text-align:center;" v-show="page.title == '材料归档'" @click="goToArchive">
+			查看材料归档<span style="color:red;margin-left:10rpx;">></span>
+		</view>
 	</view>
 </template>
 
@@ -20,25 +24,19 @@
 	export default {
 		data() {
 			return {
-				page: {
-					tips: "该流程由党支部报学院党委备案，您无需操作。",
-					title: "如何成为入党申请人",
-					contents: [
-						{
-							subtitle: "条件",
-							text: "年满18周岁的中国公民；承认党的纲领和章程；愿意参加党的一个组织并在其中积极工作；愿意执行党的决议；按期缴纳党费。"
-						},
-						{
-							subtitle: "要求",
-							text: "向工作、学习所在单位党组织提出入党申请；没有工作、学习单位或工作、学习单位尚未建立党组织的，向居住地党组织提出入党申请；流动人员还可以向单位所在地党组织或单位主管部门党组织、流动党员党组织提出入党申请。"
-						},
-						{
-							subtitle: "注意",
-							text: "本人提出；书面申请"
-						}
-					]
-				}
+				page: {}
 			};
+		},
+		methods: {
+			goToArchive() {
+				uni.navigateTo({
+					url: "/pages/me/archive"
+				});
+			}
+		},
+		onLoad(opt) {
+			if (opt.page)
+				this.page = JSON.parse(opt.page);
 		}
 	}
 </script>

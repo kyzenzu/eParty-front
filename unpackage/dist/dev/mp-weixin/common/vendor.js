@@ -26606,7 +26606,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 41));
 var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 43));
-var SERVER = "localhost";
+var SERVER = "172.20.10.2";
 var PORT = 8080;
 var HTTP = "http";
 var requests = {

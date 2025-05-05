@@ -9,6 +9,7 @@
 			<divider double></divider>
 			
 			<!-- 学工党建 -->
+			<!-- /api/articles/ -->
 			<view class="xgdj">
 				<view class="xgdj-title">
 					<view class="block"></view>
@@ -93,6 +94,7 @@
 			};
 		},
 		methods: {
+			
 			goToZTWZ() {
 				var url = "https://www.12371.cn/dsxx/";
 				uni.navigateTo({

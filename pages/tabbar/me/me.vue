@@ -132,7 +132,7 @@
 			goToAuth() {
 				// 跳转到认证信息页面
 				uni.navigateTo({
-					url: '/pages/auth/auth'
+					url: '/pages/me/information'
 				});
 			},
 			goToFeedback() {

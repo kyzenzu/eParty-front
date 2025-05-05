@@ -184,50 +184,74 @@ var _default = {
   },
 
   methods: {
-    open: function open(item) {
-      uni.openDocument({
-        filePath: item.tempFilePath,
-        showMenu: true,
-        success: function success(res) {
-          console.log('打开文档成功');
-        },
-        fail: function fail(err) {
-          console.log("打开失败");
-          console.log(err);
-        }
-      });
-    },
-    download: function download(item) {
+    preview: function preview(item) {
       return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
-        var api, tempFilePath;
+        var tempFilePath, api;
         return _regenerator.default.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                api = "/api/material-template/".concat(item.code);
-                _context.next = 3;
+                tempFilePath = item.tempFilePath;
+                if (tempFilePath) {
+                  _context.next = 7;
+                  break;
+                }
+                api = "/api/file/".concat(item.id);
+                _context.next = 5;
                 return _requests.default.download(api);
-              case 3:
+              case 5:
                 tempFilePath = _context.sent;
                 item.tempFilePath = tempFilePath;
-                console.log(tempFilePath);
-
-                // downloadTask.onProgressUpdate((res) => {
-                // 	console.log('下载进度' + res.progress);
-                // 	console.log('已经下载的数据长度' + res.totalBytesWritten);
-                // 	console.log('预期需要下载的数据总长度' + res.totalBytesExpectedToWrite);
-
-                // 	if (res.progress > 50) {
-                // 		downloadTask.abort();
-                // 		console.log("满足测试条件，取消下载任务。");
-                // 	}
-                // });
-              case 6:
+              case 7:
+                uni.openDocument({
+                  filePath: item.tempFilePath,
+                  showMenu: true,
+                  fileType: "pdf",
+                  success: function success(res) {
+                    console.log('打开文档成功');
+                  },
+                  fail: function fail(err) {
+                    console.log("打开失败");
+                    console.log(err);
+                  }
+                });
+              case 8:
               case "end":
                 return _context.stop();
             }
           }
         }, _callee);
+      }))();
+    },
+    saveFile: function saveFile(item) {
+      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
+        var tempFilePath, api;
+        return _regenerator.default.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                uni.showToast({
+                  title: '请打开文件后分享至文件传输助手自行下载',
+                  icon: 'none',
+                  duration: 2500
+                });
+                tempFilePath = item.tempFilePath;
+                if (tempFilePath) {
+                  _context2.next = 8;
+                  break;
+                }
+                api = "/api/file/".concat(item.id);
+                _context2.next = 6;
+                return _requests.default.download(api);
+              case 6:
+                tempFilePath = _context2.sent;
+                item.tempFilePath = tempFilePath;
+              case 8:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
       }))();
     }
   },
@@ -242,7 +266,8 @@ var _default = {
           time: data[i].modifiedTime.slice(0, 10),
           size: "194KB",
           // size: data[i].size,
-          code: data[i].code
+          code: data[i].code,
+          exampleFile: data[i].exampleFile
         };
         materials.push(material);
       }

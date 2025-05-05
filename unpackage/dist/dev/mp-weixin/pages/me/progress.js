@@ -160,10 +160,12 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 
 
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+var _toConsumableArray2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ 18));
 //
 //
 //
@@ -202,18 +204,24 @@ var _default = {
       var height = maxCount * 270 + 100;
       // console.log(height);
       return height + "rpx";
+    },
+    progresses: function progresses() {
+      var all = [].concat((0, _toConsumableArray2.default)(this.fulfilled), (0, _toConsumableArray2.default)(this.pending), (0, _toConsumableArray2.default)(this.rejected));
+      var progresses = [this.pending, this.rejected, this.fulfilled, all];
+      return progresses;
     }
   },
   data: function data() {
     return {
       curProgress: 0,
       navbar: ["审批中", "退回", "审批成功", "全部"],
-      progresses: [[{
+      pending: [{
         title: "申请入党",
         time: "24/02/10",
         content: "递交《入党申请书》",
         status: 0
-      }], [{
+      }],
+      rejected: [{
         title: "申请入党",
         time: "24/02/10",
         content: "递交《入党申请书》",
@@ -223,7 +231,8 @@ var _default = {
         time: "24/02/10",
         content: "递交《入党申请书》",
         status: 1
-      }], [{
+      }],
+      fulfilled: [{
         title: "申请入党",
         time: "24/02/10",
         content: "递交《入党申请书》",
@@ -238,7 +247,7 @@ var _default = {
         time: "24/02/10",
         content: "递交《入党申请书》",
         status: 2
-      }], [{}]]
+      }]
     };
   }
 };

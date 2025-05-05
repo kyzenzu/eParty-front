@@ -5,7 +5,7 @@
 			<view class="section-title">知识介绍</view>
 			<gradient-line color1="#E42417" width="164rpx"></gradient-line>
 			<view class="grid-container">
-				<view class="grid-item" v-for="(item, index) in gridItems" :key="index" @click="onGridClick(index)">
+				<view class="grid-item" v-for="(item, index) in gridItems" :key="index" @click="onGridClick(item)">
 					<image :src="item.icon" class="grid-icon"></image>
 					<text class="grid-text">{{ item.text }}</text>
 				</view>
@@ -19,11 +19,8 @@
 				<view class="line"></view>
 			</view>
 			<view class="card-container">
-				<view class="row">
-					<manuel-item @click.native="clickLookMore()"></manuel-item>
-				</view>
-				<view class="row">
-					<manuel-item></manuel-item>
+				<view class="row" v-for="(item, index) in manuels" :key="index">
+					<manuel-item :item="item"></manuel-item>
 				</view>
 			</view>
 			<view class="look-more">
@@ -35,6 +32,8 @@
 </template>
 
 <script>
+	const manueldata = require('@/data/manueldata.json');
+	const introducedata = require('@/data/introducedata.json');
 	export default {
 		onReachBottom(){
 			uni.navigateTo({
@@ -79,12 +78,14 @@
 						desc: "了解入党申请人基本情况；介绍..."
 					},
 				],
+				manuels: []
 			};
 		},
 		methods: {
 			onGridClick(item) {
+				var page = introducedata[item.text];
 				uni.navigateTo({
-					url: '/pages/join/introduce'
+					url: '/pages/join/introduce?page=' + JSON.stringify(page)
 				});
 			},
 			onHandbookClick(item) {
@@ -93,11 +94,10 @@
 					icon: "none"
 				});
 			},
-			clickLookMore() {
-				// uni.navigateTo({
-				// 	url: '/pages/join/manuel'
-				// });
+			onLoad() {
+				this.manuels = manueldata["申请入党"];
 			}
+			
 		}
 	}
 </script>

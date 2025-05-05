@@ -37,6 +37,11 @@
 				var height = maxCount * 270 + 100;
 				// console.log(height);
 				return height + "rpx";
+			},
+			progresses() {
+				var all = [...this.fulfilled, ...this.pending, ...this.rejected];
+				var progresses = [this.pending, this.rejected, this.fulfilled, all];
+				return progresses;
 			}
 		},
 		data() {
@@ -45,42 +50,46 @@
 				navbar: [
 					"审批中","退回","审批成功","全部",
 				],
-				progresses: [
-					[{
+				pending: [
+					{
 						title: "申请入党",
 						time: "24/02/10",
 						content: "递交《入党申请书》",
 						status: 0
-					}],
-					[{
+					},
+				],
+				rejected: [
+					{
 						title: "申请入党",
 						time: "24/02/10",
 						content: "递交《入党申请书》",
 						status: 1
-					},{
+					}, {
 						title: "申请入党",
 						time: "24/02/10",
 						content: "递交《入党申请书》",
 						status: 1
-					}],
-					[{
+					},
+				],
+				fulfilled: [
+					{
 						title: "申请入党",
 						time: "24/02/10",
 						content: "递交《入党申请书》",
 						status: 2
-					},{
+					}, {
 						title: "申请入党",
 						time: "24/02/10",
 						content: "递交《入党申请书》",
 						status: 2
-					},{
+					}, {
 						title: "申请入党",
 						time: "24/02/10",
 						content: "递交《入党申请书》",
 						status: 2
-					},],
-					[{}]
-				]
+					},
+				],
+				
 			};
 		}
 	}

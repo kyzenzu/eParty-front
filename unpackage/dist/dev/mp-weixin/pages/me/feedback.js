@@ -135,12 +135,16 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function(uni) {
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+//
+//
+//
+//
 //
 //
 //
@@ -175,6 +179,43 @@ var _default = {
     inputTextArea: function inputTextArea(e) {
       console.log(e);
       this.textLength = e.detail.cursor;
+    },
+    uploadImage: function uploadImage() {
+      var selectedImages = this.selectedImages;
+      uni.chooseImage({
+        mediaType: ["image"],
+        sizeType: ["original"],
+        success: function success(res) {
+          var tempFiles = res.tempFiles;
+          for (var i = 0; i < tempFiles.length; i++) {
+            var file = tempFiles[i];
+            selectedImages.push(file);
+          }
+          console.log(selectedImages);
+        },
+        fail: function fail(err) {
+          console.log("choose image fail");
+          console.log(err);
+        }
+      });
+    },
+    openImage: function openImage(index) {
+      var imageUrls = [];
+      for (var i = 0; i < this.selectedImages.length; i++) {
+        imageUrls.push(this.selectedImages[i].path);
+      }
+      uni.previewImage({
+        current: index,
+        indicator: "default",
+        urls: imageUrls
+      });
+    },
+    deleteImage: function deleteImage(index) {
+      this.selectedImages.splice(index, 1);
+    },
+    submit: function submit() {
+      //提交
+      console.log("提交反馈");
     }
   },
   computed: {
@@ -208,11 +249,13 @@ var _default = {
         name: "吐槽一下",
         active: false
       }],
-      textLength: 0
+      textLength: 0,
+      selectedImages: []
     };
   }
 };
 exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
 

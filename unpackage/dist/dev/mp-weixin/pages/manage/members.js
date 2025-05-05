@@ -135,7 +135,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function(uni) {
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -184,8 +184,12 @@ exports.default = void 0;
 //
 //
 var _default = {
+  onLoad: function onLoad(opts) {
+    this.title = JSON.parse(opts.info);
+  },
   data: function data() {
     return {
+      title: {},
       memberList: [{
         name: '岑家如',
         age: 21,
@@ -222,9 +226,18 @@ var _default = {
       // 可以添加更多成员数据
       ]
     };
+  },
+
+  methods: {
+    goToInformation: function goToInformation() {
+      uni.navigateTo({
+        url: "/pages/manage/information"
+      });
+    }
   }
 };
 exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
 

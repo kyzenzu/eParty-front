@@ -8,17 +8,21 @@
 
 			<view class="input-section">
 				<text class="label">详细描述<span class="required">*</span></text>
-				<textarea class="textarea" placeholder="请详细描述问题或建议" maxlength="500" @input="inputTextArea"></textarea>
+				<textarea class="textarea" placeholder="请详细描述问题或建议" maxlength="500" @input="inputTextArea" v-model="textareaValue"></textarea>
 				<text class="char-count">{{ textLength }}/500</text>
 			</view>
 
 			<view class="image-upload">
-				<image src="/static/images/me/feedback/add-image.png" class="upload-icon"></image>
+				<view class="image-item" v-for="(item, index) in selectedImages" :key="index">
+					<image :src="item.path" mode="aspectFill" @click="openImage(index)"></image>
+					<view class="delete-icon" @click.stop="deleteImage(index)">×</view>
+				</view>
+				<image src="/static/images/me/feedback/add-image.png" class="upload-icon" @click="uploadImage"></image>
 			</view>
 		</view>
 
 		<view class="button-box">
-			<view class="submit-btn" :class="{active: buttonActive}" disabled>提交</view>
+			<view class="submit-btn" :class="{active: buttonActive}" @click="submit">提交</view>
 		</view>
 	</view>
 </template>
@@ -31,8 +35,57 @@
 				tag.active = !tag.active;
 			},
 			inputTextArea(e) {
-				console.log(e);
+				// console.log(e);
 				this.textLength = e.detail.cursor;
+			},
+			uploadImage() {
+				var selectedImages = this.selectedImages;
+				uni.chooseImage({
+					mediaType: ["image"],
+					sizeType: ["original"],
+					success: res => {
+						var tempFiles = res.tempFiles;
+						for (var i = 0; i < tempFiles.length; i++) {
+							var file = tempFiles[i];
+							selectedImages.push(file);
+						}
+						console.log(selectedImages);
+					},
+					fail: err => {
+						console.log("choose image fail");
+						console.log(err);
+					}
+				})
+			},
+			openImage(index) {
+				//#ifdef MP-WEIXIN
+					var imageUrls = [];
+					for (var i = 0; i < this.selectedImages.length; i++) {
+						imageUrls.push(this.selectedImages[i].path);
+					}
+					uni.previewImage({
+						current: index,
+						indicator: "default",
+						urls: imageUrls,
+					})
+				//#endif
+			},
+			deleteImage(index) {
+				this.selectedImages.splice(index, 1);
+			},
+			submit() {
+				/*
+					提交至服务器
+				*/
+				console.log("提交反馈");
+				for (var tag of this.tags)
+					tag.active = false;
+				this.textareaValue = "";
+				uni.showToast({
+					title: '感谢您的反馈！平台运营人员将根据反馈内容在1个工作日内回复~',
+					icon: 'none',
+					duration: 2000
+				});
 			}
 		},
 		computed: {
@@ -74,6 +127,8 @@
 					}
 				],
 				textLength: 0,
+				textareaValue: "",
+				selectedImages: []
 			};
 		}
 	};
@@ -144,7 +199,36 @@
 	.image-upload {
 		margin-top: 32rpx;
 		padding-left: 28rpx;
-		image {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 35rpx 8rpx;
+		.image-item {
+			position: relative;
+			width: 156rpx;
+			height: 156rpx;
+			image {
+				width: 100%;
+				height: 100%;
+				display: block;
+			}
+			.delete-icon {
+				position: absolute;
+				top: 5rpx;
+				right: 5rpx;
+				width: 30rpx;
+				height: 30rpx;
+				background-color: rgba(0, 0, 0, 0.5);
+				color: white;
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 20rpx;
+				line-height: 30rpx;
+				z-index: 10;
+			}
+		}
+		.upload-icon {
 			width: 156rpx;
 			height: 156rpx;
 		}

@@ -12,7 +12,7 @@
 
 					<view class="file-info">
 						<image src="/static/images/me/example/pdf-icon.png" mode="aspectFit" class="file-icon"
-							@click="open(item)"></image>
+							@click="preview(item)"></image>
 						<view class="file-detail">
 							<view class="file-name">{{item.name}}</view>
 							<view class="file-meta">{{item.time}} {{item.size}}</view>
@@ -20,7 +20,7 @@
 						</view>
 					</view>
 
-					<image class="download" src="/static/images/me/example/download.png" @click="download(item)">
+					<image class="download" src="/static/images/me/example/download.png" @click="saveFile(item)">
 					</image>
 
 				</view>
@@ -38,10 +38,18 @@
 			};
 		},
 		methods: {
-			open(item) {
+			async preview(item) {
+				var tempFilePath = item.tempFilePath;
+				if (!tempFilePath) {
+					var api = `/api/file/${item.id}`;
+					tempFilePath = await requests.download(api);
+					item.tempFilePath = tempFilePath;
+				}
+				
 				uni.openDocument({
 					filePath: item.tempFilePath,
 					showMenu: true,
+					fileType: "pdf",
 					success: function(res) {
 						console.log('打开文档成功');
 					},
@@ -51,11 +59,25 @@
 					}
 				});
 			},
-			async download(item) {
-				var api = `/api/material-template/${item.code}`
-				var tempFilePath = await requests.download(api);
-				item.tempFilePath = tempFilePath;
-				console.log(tempFilePath);
+
+			async saveFile(item) {
+				uni.showToast({
+					title: '请打开文件后分享至文件传输助手自行下载',
+					icon: 'none',
+					duration: 2500
+				});
+				var tempFilePath = item.tempFilePath;
+				if (!tempFilePath) {
+					var api = `/api/file/${item.id}`;
+					tempFilePath = await requests.download(api);
+					item.tempFilePath = tempFilePath;
+				}
+				
+				
+
+				// var tempFilePath = await requests.download(api);
+				// item.tempFilePath = tempFilePath;
+				// console.log(tempFilePath);
 
 				// downloadTask.onProgressUpdate((res) => {
 				// 	console.log('下载进度' + res.progress);
@@ -81,7 +103,8 @@
 						time: data[i].modifiedTime.slice(0, 10),
 						size: "194KB",
 						// size: data[i].size,
-						code: data[i].code
+						code: data[i].code,
+						exampleFile: data[i].exampleFile
 					}
 
 					materials.push(material);

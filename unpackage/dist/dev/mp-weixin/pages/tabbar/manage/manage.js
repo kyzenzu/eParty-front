@@ -254,9 +254,11 @@ exports.default = void 0;
 //
 //
 //
+//
 var _default = {
   data: function data() {
     return {
+      highlightClassPicker: false,
       ringCharts: {
         opts: {
           title: {
@@ -358,7 +360,7 @@ var _default = {
       },
       branches: ["教工第一党支部", "教工第二党支部", "教工第三党支部", "学生第一党支部", "学生第二党支部"],
       grades: ["大一", "大二", "大三", "大四"],
-      classes: ["一班", "二班", "三班"],
+      classes: ["软工22-1", "数媒22-3", "物联网22-2"],
       compositions: [{
         name: "教工第一党支部",
         details: "(软工+人工智能+实验室18人)",
@@ -403,6 +405,32 @@ var _default = {
     };
   },
   methods: {
+    goToMembers: function goToMembers(item) {
+      var _this = this;
+      if (this.filter.class == "班级") {
+        uni.showToast({
+          title: '请先选择班级',
+          icon: 'none',
+          duration: 2000
+        });
+        // 触发高亮
+        this.highlightClassPicker = true;
+        // 2.5秒后移除高亮
+        setTimeout(function () {
+          _this.highlightClassPicker = false;
+        }, 2500);
+        return;
+      }
+      var info = {
+        title: item.name,
+        class: this.filter.class
+      };
+      uni.navigateTo({
+        url: "/pages/manage/members?info=" + JSON.stringify(info),
+        animationType: "slide-in-right",
+        animationDuration: 200
+      });
+    },
     branchMarginRight: function branchMarginRight(index) {
       return index == this.compositions.length - 1 ? 0 : "75rpx";
     },

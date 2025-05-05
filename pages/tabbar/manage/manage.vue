@@ -18,7 +18,7 @@
 
 				</picker>
 			</view>
-			<view class="filter-box filter-class">
+			<view class="filter-box filter-class" :class="{ 'highlight': highlightClassPicker }">
 				<picker mode="selector" :range="classes" @change="changeClass">
 					<view class="picker-inner">
 						<text class="filter-text class">{{filter.class}}</text>
@@ -29,6 +29,7 @@
 		</view>
 		<view class="contents">
 			<view class="member-account content-card">
+				<!-- /api/accounts/ -->
 				<view class="title">支部党员人数</view>
 				<view class="charts-box">
 					<!-- 环形图 -->
@@ -63,7 +64,7 @@
 				<view class="title">审批材料</view>
 				<view class="grid-container">
       				<view class="grid-item" v-for="(item, index) in approvalItems" :key="index"
-					 :style="{backgroundImage: item.background}">
+					 :style="{backgroundImage: item.background}" @click="goToMembers(item)">
 						{{item.name}}
 					</view>
     			</view>
@@ -76,6 +77,7 @@
 	export default {
 		data() {
 			return {
+				highlightClassPicker: false,
 				ringCharts: {
 					opts: {
 						title: {
@@ -188,9 +190,9 @@
 					"大四"
 				],
 				classes: [
-					"一班",
-					"二班",
-					"三班"
+					"软工22-1",
+					"数媒22-3",
+					"物联网22-2"
 				],
 				compositions: [{
 						name: "教工第一党支部",
@@ -248,6 +250,31 @@
 			};
 		},
 		methods: {
+			goToMembers(item) {
+				if (this.filter.class == "班级") {
+					uni.showToast({
+						title: '请先选择班级',
+						icon: 'none',
+						duration: 2000
+					});
+					// 触发高亮
+					this.highlightClassPicker = true;
+					// 2.5秒后移除高亮
+					setTimeout(() => {
+						this.highlightClassPicker = false;
+					}, 2500);
+					return;
+				}
+				var info = {
+					title: item.name,
+					class: this.filter.class
+				}
+				uni.navigateTo({
+					url: "/pages/manage/members?info=" + JSON.stringify(info),
+					animationType: "slide-in-right",
+					animationDuration: 200
+				})
+			},
 			branchMarginRight(index) {
 				return index == this.compositions.length - 1 ? 0 : "75rpx";
 			},
@@ -300,7 +327,9 @@
 			}
 
 			.filter-box {
-				width: 179rpx;
+				min-width: 80rpx;
+				padding-left: 20rpx;
+				padding-right: 20rpx;
 				height: 49rpx;
 				background-color: #FFF;
 				border-radius: 24.5rpx;
@@ -325,6 +354,14 @@
 						height: 10.58rpx;
 					}
 				}
+			}
+
+			// 新增：高亮样式
+			.highlight {
+				border-color: #E42417 !important; // 使用主题色或醒目的颜色
+				color: #E42417 !important; // 使用主题色或醒目的颜色
+				// 可以添加 transition 使边框颜色变化更平滑
+				transition: border-color 0.3s ease-in-out;
 			}
 		}
 
